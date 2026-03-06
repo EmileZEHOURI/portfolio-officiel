@@ -1,70 +1,109 @@
 "use client";
 
-import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+import AnimatedLink from "./ui/animated-link";
+import useActiveSection from "../hooks/useActiveSection";
+import NavbarReveal from "./ui/navbar-reveal";
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const active = useActiveSection();
+
+  const linkClass = (target: string) => {
+    // pages
+    if (target.startsWith("/")) {
+      return pathname === target
+        ? "opacity-40 transition"
+        : "text-black hover:text-black transition";
+    }
+
+    // sections (#projects, #about)
+    return active === target
+      ? "opacity-40 transition"
+      : "text-black hover:text-black transition";
+  };
+
+  const item = {
+    hidden: { y: -10, opacity: 0 },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
+    },
+  };
+
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-white">
-      <div className="w-full px-1">
-        {/* 16 colonnes = grille de placement */}
-        <div className="grid h-16 grid-cols-16 items-center">
-          {/* Projects */}
-          <a
-            href="/#projects"
-            className="col-start-9 col-span-1 justify-self-start text-[13px] text-black/60 hover:text-black transition"
-          >
-            Projects
-          </a>
-
-          {/* About */}
-          <Link
-            href="/about"
-            className="col-start-11 col-span-1 justify-self-start  text-[13px] font-semibold text-black hover:text-black transition"
-          >
-            About
-          </Link>
-
-          {/* Contact */}
-          <Link
-            href="/contact"
-            className="col-start-13 col-span-2 justify-self-start  text-[13px] text-black/60 hover:text-black transition"
-          >
-            Contact
-          </Link>
-
-          {/* Shop */}
-          <a
-            href="https://shop.tyrsa.fr/"
-            target="_blank"
-            rel="noreferrer"
-            className="col-start-15 col-span-1 justify-self-start  text-[13px] text-black/60 hover:text-black transition"
-          >
-            Shop
-          </a>
-
-          {/* Instagram collé à droite */}
-          <a
-            href="https://www.instagram.com/tyrsa/"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-            className="col-start-16 justify-self-end text-black/60 hover:text-black transition"
-          >
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
+    <header
+      id="home"
+      className="fixed m-[-1rem] top-0 inset-x-0 z-50 bg-transparent text-[10px] font-normal"
+    >
+      <NavbarReveal>
+        <div className="w-full px-1 tracking-tight">
+          {/* 16 colonnes = grille de placement */}
+          <div className="grid h-16 grid-cols-16 items-center">
+            {/* Projects */}
+            <AnimatedLink
+              href="/#projects"
+              className={`${linkClass("projects")} col-start-9 col-span-1 justify-self-start `}
             >
-              <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
-              <path d="M16 11.37a4 4 0 1 1-7.87 1.17A4 4 0 0 1 16 11.37Z" />
-              <path d="M17.5 6.5h.01" />
-            </svg>
-          </a>
+              <motion.div variants={item}>Projects</motion.div>
+            </AnimatedLink>
+
+            {/* About */}
+            <AnimatedLink
+              href="/#about"
+              className={`${linkClass("about")} col-start-11 col-span-1 justify-self-start `}
+            >
+              <motion.div variants={item}>About</motion.div>
+              
+            </AnimatedLink>
+
+            {/* Contact */}
+            <AnimatedLink
+              href="/contact"
+              className={`${linkClass("/contact")} col-start-13 col-span-2 justify-self-start  `}
+            >
+              <motion.div variants={item}>Contact</motion.div>
+              
+            </AnimatedLink>
+
+            {/* Home */}
+            <AnimatedLink
+              href="/#home"
+              className={`${linkClass("/home")} col-start-15 col-span-1 justify-self-start  `}
+            >
+              <motion.div variants={item}>Home</motion.div>
+            </AnimatedLink>
+
+            {/* Instagram collé à droite */}
+            <a
+              href="https://www.instagram.com/tyrsa/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="col-start-16 -translate-x-4 justify-self-end text-black hover:text-black transition"
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <rect x="3" y="3" width="18" height="18" rx="5" ry="5" />
+                <path d="M16 11.37a4 4 0 1 1-7.87 1.17A4 4 0 0 1 16 11.37Z" />
+                <path d="M17.5 6.5h.01" />
+              </svg>
+            </a>
+          </div>
         </div>
-      </div>
+      </NavbarReveal>
     </header>
   );
 }
