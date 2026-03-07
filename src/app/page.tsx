@@ -13,7 +13,7 @@ export default function Home() {
       <Projects />
       <UnderProjects/>
       <AboutMe/>
-      <Footer/>
+
     </main>
   );
 }

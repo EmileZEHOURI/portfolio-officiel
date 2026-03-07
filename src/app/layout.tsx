@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import localFont from "next/font/local"
-
-const inter = Inter({ subsets: ["latin"] });
+import localFont from "next/font/local";
+import Footer from "../../components/Footer";
 
 const satoshi = localFont({
   src: [
@@ -26,19 +24,29 @@ const satoshi = localFont({
   variable: "--font-satoshi",
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Portfolio Emile Z",
   description: "Thanks You",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="fr">
-      <body className={`${satoshi.className} m-0`} >{children}</body>
+      <body
+        className={`${satoshi.className} m-0 min-h-screen flex flex-col`}
+      >
+        {/* Contenu des pages */}
+        <main className="flex-1">
+          {children}
+        </main>
+
+        {/* Footer toujours en bas */}
+        <Footer />
+      </body>
     </html>
   );
 }

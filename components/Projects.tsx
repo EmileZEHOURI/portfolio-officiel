@@ -1,37 +1,58 @@
 import React from "react";
+import AnimatedImage from "./ui/animated-image";
+import Link from "next/link";
 
 const Projects = () => {
   return (
-    <section id="projects" className="relative flex flex-col h-[100vh] bg-gray-100 items-center justify-center">
-      <div className="w-full h-[100vh] overflow-hidden">
-        <img
-          src="/assets/images/melvin-photo.jpeg"
-          alt="baskettoff"
-          width={1440}
-          height={1440}
-          className="w-full h-full object-cover object-center"
-        />
-      </div>
+    <section
+      id="projects"
+      className="relative h-screen w-full bg-transparent"
+    >
+      <Link
+        href="/negativ-basket-project"
+        className="relative block w-full h-full"
+      >
+        {/* IMAGE */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <AnimatedImage
+            src="/assets/images/melvin-photo.jpeg"
+            alt="baskettoff"
+            width={1440}
+            height={1440}
+            className="w-full h-full"
+            maxScale={1.18}
+          />
+        </div>
 
-      {/* Titres */}
-      <div className="text-white/90 absolute flex items-end gap-6">
-        <h1 className="text-8xl font-extrabold">NEGATIV BASKETBALL</h1>
+        {/* TITRES */}
+        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between p-8 text-white/90">
+          <div>
+            <h1 className=" md:text-2xl lg:text-3xl font-extrabold tracking-tighter leading-[0.9]">
+              NEGATIV <br /> BASKETBALL
+            </h1>
+          </div>
 
-        <h1 className="text-4xl font-extrabold">Web Developpement FullStack</h1>
-      </div>
+          <div className="flex flex-col leading-[0.95]  text-right md:text-[0.3rem] lg:text-[0.5rem]">
+            <span className=" font-normal tracking-wide">
+              Web Development
+            </span>
+            <span className="font-extrabold underline tracking-wide">
+              FullStack Project
+            </span>
+          </div>
+        </div>
+      </Link>
 
-      {/* Crédit photo */}
-
-      <div className="absolute -bottom-5 right-1 text-black text-sm font-normal tracking-wide">
-      <span className="text-[10px] line-height-[1.25rem]"> Photos : </span>
+      {/* CREDIT PHOTO */}
+      <div className="absolute bottom-4 right-4 z-20 text-[10px] text-white tracking-wide">
+        Photos :
         <a
           href="https://www.instagram.com/islem_asd/"
           target="_blank"
           rel="noreferrer"
-          aria-label="Instagram"
-          className=""
+          className="ml-1 font-bold hover:text-white/60 transition-all duration-300"
         >
-         <span className="text-black hover:text-black/60 transition-all duration-300 font-bold "> @islem_asd </span>
+          @islem_asd
         </a>
       </div>
     </section>

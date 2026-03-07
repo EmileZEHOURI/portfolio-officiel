@@ -7,7 +7,7 @@ export default function ContactPage() {
     <main className="pt-16" >
       <Header />
       <ContactPageContent/>
-      <Footer />
+  
     </main>
   );
 }

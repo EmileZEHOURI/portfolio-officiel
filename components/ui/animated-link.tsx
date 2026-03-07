@@ -10,7 +10,7 @@ export default function AnimatedLink({
   children,
   className,
 }: {
-  href: string;
+  href?: string;
   children: React.ReactNode;
   className?: string;
 }) {

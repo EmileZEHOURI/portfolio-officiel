@@ -38,7 +38,7 @@ const Hero = () => {
               duration={0.05}
               animation="blurInUp"
               by="word"
-              once
+              
             >
               Paris-based developer crafting impactful websites, software and
               digital identities for your projects.
