@@ -41,18 +41,18 @@ const UnderProjects = () => (
         whileInView="visible"
         whileHover="hover"
         viewport={{ once: true, amount: 0.25 }}
-        className="col-start-1 col-span-6 bg-neutral-200 p-1 flex flex-col justify-between"
+        className="col-start-1 col-span-6 bg-neutral-400 p-1 flex flex-col justify-between"
       >
         <div>
-          <p className="text-sm uppercase tracking-[0.2em] text-black/50">
+          <p className="text-sm uppercase tracking-[0.2em] text-white/50">
             Incoming
           </p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-black">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white">
             More projects soon
           </h2>
         </div>
 
-        <p className="text-sm text-black/60">
+        <p className="text-sm text-white/60">
           New case studies and experiments are on the way.
         </p>
       </motion.div>
@@ -63,20 +63,20 @@ const UnderProjects = () => (
         whileInView="visible"
         whileHover="hover"
         viewport={{ once: true, amount: 0.25 }}
-        className="col-start-7 col-span-6 bg-neutral-400 p-1 flex flex-col justify-between"
+        className="col-start-7 col-span-6 bg-neutral-600 p-1 flex flex-col justify-between"
       >
         <div>
-          <p className="text-sm uppercase tracking-[0.2em] text-black/50">
+          <p className="text-sm uppercase tracking-[0.2em] text-white/50">
             Current
           </p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-black">
+          <h2 className="mt-4 text-3xl font-bold tracking-tight text-white">
             Current project
           </h2>
         </div>
 
         <Link
           href="/negativ-basket-project"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-black hover:opacity-60 transition"
+          className="inline-flex gap-2 text-sm font-semibold text-white hover:opacity-60 transition"
         >
           View latest work
           <span>↗</span>
@@ -89,7 +89,7 @@ const UnderProjects = () => (
         whileInView="visible"
         whileHover="hover"
         viewport={{ once: true, amount: 0.25 }}
-        className="col-start-13 col-span-4 bg-neutral-600 p-8 flex flex-col justify-between"
+        className="col-start-13 col-span-4 bg-neutral-800 p-1 flex flex-col justify-between"
       >
         <div>
           <p className="text-sm uppercase tracking-[0.2em] text-white/50">
@@ -98,7 +98,16 @@ const UnderProjects = () => (
           <h2 className="mt-4 text-3xl font-bold tracking-tight text-white">
             Selected work
           </h2>
+         
         </div>
+         <Link
+          href="https://github.com/EmileZEHOURI"
+          target="_blank"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-gray-300 hover:opacity-60 transition"
+        >
+          My Github
+          <span>↗</span>
+        </Link>
       </motion.div>
     </div>
   </section>

@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site" : "portfolio-emile-zehouri",
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
