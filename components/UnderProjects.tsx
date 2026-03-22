@@ -33,7 +33,7 @@ const makeCardVariants = (delay = 0) => ({
 });
 
 const UnderProjects = () => (
-  <section className="w-full min-h-[40vh] bg-white">
+  <section id="underprojects" className="w-full min-h-[40vh] bg-white">
     <div className="grid grid-cols-16 h-[40vh] w-full">
       <motion.div
         variants={makeCardVariants(0)}

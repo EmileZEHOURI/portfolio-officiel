@@ -23,7 +23,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section>
+    <section id="hero">
       <div className=" w-full min-h-[18vh]  bg-white ">
         <div className="grid  grid-cols-16 items-end">
           <h2
