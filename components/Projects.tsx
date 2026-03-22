@@ -31,8 +31,11 @@ const Projects = () => {
               NEGATIV <br /> BASKETBALL
             </h1>
           </div>
+          <span className="md:text-xl lg:text-1xl font-extrabold tracking-tighter self-end leading-[0.9]">
+            VOIR PLUS
+          </span>
 
-          <div className="flex flex-col leading-[0.95]  text-right md:text-[0.3rem] lg:text-[0.5rem]">
+          <div className="flex flex-col leading-[0.95]  text-right md:text-[0.7rem] lg:text-[0.9rem]">
             <span className=" font-normal tracking-wide">
               Web Development
             </span>
@@ -45,7 +48,7 @@ const Projects = () => {
 
       {/* CREDIT PHOTO */}
       <div className="absolute bottom-4 right-4 z-20 text-[10px] text-white tracking-wide">
-        Photos :
+        Crédit :
         <a
           href="https://www.instagram.com/islem_asd/"
           target="_blank"
